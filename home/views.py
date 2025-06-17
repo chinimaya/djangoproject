@@ -7,15 +7,20 @@ from .models import *
 def home(request):
     views = {}
     views['services'] = Service.objects.all()
+    views['feedbacks'] = Feedback.objects.all()
     return render(request, 'index.html', views)
 
 
 def about(request):
-    return render(request, 'about.html')
+    views = {}
+    views['feedbacks'] = Feedback.objects.all()
+    return render(request, 'about.html', views)
 
 
 def contact(request):
-    return render(request, 'contact.html')
+    views = {}
+    views['informations'] = Information.objects.all()
+    return render(request, 'contact.html', views)
 
 
 def portfolio(request):
